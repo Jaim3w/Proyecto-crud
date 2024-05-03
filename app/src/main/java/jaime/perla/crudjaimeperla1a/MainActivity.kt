@@ -8,6 +8,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.Recycler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -26,6 +29,9 @@ class MainActivity : AppCompatActivity() {
         val txtprecio = findViewById<EditText>(R.id.txtPrecio)
         val txtcantidad = findViewById<EditText>(R.id.txtCantidad)
         val btnAgregar = findViewById<Button>(R.id.btnAgregar)
+        val rcvDatos =findViewById<RecyclerView>(R.id.rcvDatos)
+        //Ponerle un layout a mi RecyclerView
+        rcvDatos.layoutManager=LinearLayoutManager(this)
 
    //2-programar el boton agregar
         btnAgregar.setOnClickListener {
@@ -41,6 +47,12 @@ class MainActivity : AppCompatActivity() {
             addProducto.setInt(3,txtcantidad.text.toString().toInt())
             addProducto.executeUpdate()
             }
+
         }
+        //mostrar datos
+
     }
+}
+class  adptador(private val  Datos:Array<String>){
+    
 }
